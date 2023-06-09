@@ -1,36 +1,42 @@
-.chatperson {
-    cursor: pointer;
-    display: flex;
-    margin: 25px;
-    font-size: large;
-    padding: 10px;
-    background-color: #c7c7c7;
-    border: 1px solid rgb(111, 111, 111);
-    border-radius: 20px;
-    height: 80px;
-    color: rgb(84, 84, 84, 0.6);
-}
+ .main_content {
+     margin: 100px 0px;
+     display: flex;
+ }
 
-.chatperson img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-}
+ .header {
+     position: fixed;
+     top: 0;
+ }
 
-.message_section_chat {
-    display: grid;
-    align-items: center;
-    justify-content: space-around;
-    margin-left: 10px;
-}
+ .left_content {
+     flex: 1;
+     /* position: fixed; */
+     width: 20%;
+     overflow-y: scroll;
+     min-height: 100vh;
+     scrollbar-width: thin;
+     /* Set the width of the scrollbar */
+     scrollbar-color: #888888 #dddddd;
+ }
 
-.chatsection_company {
-    margin: 10px;
-    display: flex;
-}
+ .left_content::-webkit-scrollbar {
+     width: 8px;
+     /* Set the width of the scrollbar */
+ }
 
+ .left_content::-webkit-scrollbar-track {
+     background: #dddddd;
+     /* Set the background color of the track */
+ }
 
-.chatperson:hover {
-    background-color: rgb(212, 212, 212);
-    color: black;
-}
+ .left_content::-webkit-scrollbar-thumb {
+     background-color: #eaeaea;
+     /* Set the color of the thumb */
+     border-radius: 4px;
+     /* Round the corners of the thumb */
+ }
+
+ .content{
+     flex: 4;
+/*  */
+ }

@@ -1,8 +1,8 @@
-import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './header.css'
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlinePlus } from 'react-icons/ai'
-import {BsThreeDotsVertical} from 'react-icons/bs'
+import { BsThreeDotsVertical } from 'react-icons/bs'
 const Header = () => {
     return (
         <div className='header'>
@@ -14,8 +14,8 @@ const Header = () => {
                 <span ><FiSearch /></span>
             </section> <section className="rightHeader">
                 <button className='upload'> <AiOutlinePlus /> Upload</button>
-                <span className='loginButton'>Login</span>
-                <span className='three_dot'><BsThreeDotsVertical/></span>
+                <NavLink to='/login' className='loginButton'>Login</NavLink>
+                <span className='three_dot'><BsThreeDotsVertical /></span>
             </section>
         </div>
     )
