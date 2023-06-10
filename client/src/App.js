@@ -8,9 +8,9 @@ import { useSelector } from 'react-redux';
 import Home from './pages/home';
 import Chat from './pages/chat'
 import Post from './pages/post';
+import Profile from './pages/profile';
 function App() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn)
-
 
   return (
     <div className="App">
@@ -21,11 +21,12 @@ function App() {
           <Route path='/' element={<Login />}></Route>
           {/* login routes */}
           <Route path='/login' element={<Login />}></Route>
-
           <Route path='/register' element={<Register />}></Route>
           {/* fouyou page routes */}
           <Route path='/home' element={<Home />}></Route>
-         {/* post details routes */}
+          {/* user profile page */}
+          <Route path='/profile' element={<Profile />}></Route>
+          {/* post details routes */}
           <Route path='/foryou/username/postid' element={<Post />}></Route>
           {/* chat routes */}
           <Route path='/chat' element={<Chat />}></Route>

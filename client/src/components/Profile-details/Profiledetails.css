@@ -1,0 +1,134 @@
+.ProfileDetailsContainer {
+    flex-direction: column;
+    display: flex;
+}
+
+.userprofiledetails {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.user_profile_data {
+    flex: 2;
+    display: flex;
+    margin: 10px;
+}
+
+.profile_username {
+    margin-left: 10px;
+
+}
+
+.follower_count {
+    display: flex;
+    gap: 20px;
+    margin-left: 20px;
+}
+
+.numbers {
+    font-size: 20px;
+}
+
+.fflText {
+    color: rgb(119, 119, 119);
+}
+
+.followButtonred {
+    background-color: rgb(251, 57, 57);
+    border-radius: 5px;
+    padding: 10px 50px;
+    color: rgb(241, 241, 241);
+    font-weight: bold;
+
+}
+
+.followButtonred:hover {
+    cursor: pointer;
+    background-color: rgb(255, 74, 74);
+}
+
+.profile_image img {
+    border-radius: 50px;
+}
+
+.profile_three_dots {
+    margin-left: 300px;
+    font-size: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.profileBio {
+    flex: 2;
+    display: flex;
+    width: 350px;
+    padding-top: 30px;
+    margin-left: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.videos {}
+
+.videotitle {
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(58, 58, 58);
+    gap: 30px;
+    margin-left: 10px;
+}
+
+.videoText {
+    cursor: pointer;
+}
+
+.videotitle {
+    border-bottom: 1px solid gainsboro;
+}
+
+.LikedText {
+    cursor: pointer;
+}
+
+.videoText:hover {
+    border-bottom: 2px solid grey;
+}
+
+.LikedText:hover {
+    border-bottom: 2px solid grey;
+}
+
+.videopart {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: 10px;
+    gap: 10px;
+}
+
+.views {
+    position: absolute;
+    color: white;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.videodiv {
+    position: relative;
+    height: 300px;
+    width: 240px;
+    background-color: aliceblue;
+}
+
+.video_src {
+    height: 300px;
+    width: 240px;
+}
+
+.videotitle {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
