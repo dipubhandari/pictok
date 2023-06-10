@@ -7,20 +7,29 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Home from './pages/home';
 import Chat from './pages/chat'
+import Post from './pages/post';
 function App() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn)
- 
- 
+
+
   return (
     <div className="App">
       <BrowserRouter>
 
         <Routes>
+          {/* homepage route */}
           <Route path='/' element={<Login />}></Route>
+          {/* login routes */}
           <Route path='/login' element={<Login />}></Route>
-          <Route path='/chat' element={<Chat />}></Route>
+
           <Route path='/register' element={<Register />}></Route>
+          {/* fouyou page routes */}
           <Route path='/home' element={<Home />}></Route>
+         {/* post details routes */}
+          <Route path='/foryou/username/postid' element={<Post />}></Route>
+          {/* chat routes */}
+          <Route path='/chat' element={<Chat />}></Route>
+
         </Routes>
 
       </BrowserRouter>

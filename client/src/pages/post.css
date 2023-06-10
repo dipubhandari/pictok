@@ -1,0 +1,279 @@
+.postcontainer {
+    display: flex;
+    height: 100vh;
+}
+
+.foryouleftpost {
+    flex: 2;
+    background-color: rgb(10, 10, 10);
+    height: 100vh;
+    display: flex;
+
+}
+
+/* left content */
+.crossicondiv {
+    flex: 1;
+    align-items: flex-start;
+
+    display: flex;
+}
+
+.crossicon {
+    color: #ffff;
+    background-color: rgb(169, 169, 169, 0.1);
+    border-radius: 50px;
+    font-size: 29px;
+    padding: 10px;
+    margin: 10px;
+    /* background-color: rgb(164, 41, 41,0.2); */
+}
+
+.crossicon:hover {
+    cursor: pointer;
+    background-color: rgb(169, 169, 169, 0.2);
+}
+
+.foryoucontent {
+    flex: 1.7;
+    background-color: green;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
+}
+
+.foryouscrollbar {
+    flex: 1;
+    color: #ffff;
+    display: grid;
+    align-content: space-between;
+    align-items: end;
+    font-size: 19px;
+    /* background-color: #ffff; */
+}
+
+.scrollicon {
+    margin: 10px 0px;
+}
+
+/* report section */
+.iconreport {
+    margin: 50px 0px 0px 160px;
+    background-color: rgb(62, 62, 62);
+    width: 30%;
+    padding: 10px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 17px;
+    gap: 6px;
+    display: flex;
+}
+
+.iconreport:hover {
+    cursor: pointer;
+    background-color: rgb(169, 169, 169, 0.2);
+}
+
+.iconscroll {
+    margin: 0px 0px 50px 200px;
+    background-color: rgb(62, 62, 62);
+    width: 10%;
+    padding: 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.iconscroll:hover {
+    cursor: pointer;
+    background-color: rgb(169, 169, 169, 0.2);
+}
+
+.iconvolumedown {
+    margin: 0px 0px 50px 200px;
+    background-color: rgb(62, 62, 62);
+    width: 10%;
+    padding: 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.iconvolumedown:hover {
+    cursor: pointer;
+    background-color: rgb(169, 169, 169, 0.2);
+}
+
+/* right content */
+.foryourightpost {
+    display: flex;
+    flex-direction: column;
+    flex: 1.2;
+    height: 100vh;
+}
+
+.toprightdet {
+    flex: 1.6;
+    padding: 100px 50px 0px 50px;
+}
+
+.likespost {
+
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    display: flex;
+}
+
+.user_footer {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.like_comment_favourite {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    font-size: 20px;
+    color: black;
+    gap: 20px;
+}
+
+.socialmedia {
+    flex: 2;
+    font-size: 20px;
+    color: black;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.facebook_icon {
+    color: rgb(16, 132, 255);
+}
+
+.messenger_icon {
+    color: lightblue;
+}
+
+.youtube_icon {
+    color: red;
+}
+
+.whatsapp_icon {
+    color: green;
+}
+
+.share_icon {
+    color: black;
+}
+
+/* comment section css */
+.bottomdetails {
+    background-color: rgb(188, 188, 188, 0.1);
+    flex: 3;
+    border-top: 1px solid rgb(187, 175, 175);
+    overflow-y: scroll;
+}
+
+/*  custom scroll bar for commnets */
+/* Width and Height of the scrollbar track */
+.bottomdetails::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Background color of the scrollbar track */
+.bottomdetails::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Color of the scrollbar thumb */
+.bottomdetails::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+/* Hover style for the scrollbar thumb */
+.bottomdetails::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.commentuserprofile {
+    border-radius: 50%;
+
+}
+
+.comment {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.commnetuserdetail {
+    gap: 30px;
+    display: flex;
+    flex: 4;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.commentuserprofile {
+    margin: 10px;
+    flex: 1
+}
+
+.commentdate {
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(124, 124, 124);
+}
+
+.reply {
+    margin-left: 20px;
+}
+
+.comment_input {
+    position: relative;
+}
+
+.likecomment {
+    flex: 1;
+    padding-left: 100px;
+}
+
+.comment_button {
+    position: absolute;
+    right: 25px;
+    top: 3px;
+    color: red;
+}
+
+
+/* comment end */
+
+.link {
+    width: 90%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 20px 0px 20px 20px;
+    background-color: rgb(117, 117, 117, 0.1);
+    margin-top: 20px;
+    color: rgb(156, 156, 156);
+}
+
+.link_button {
+    margin-left: 12px;
+    padding: 20px 4px;
+    color: #242424;
+}
+
+.link_button:hover {
+    background-color: rgb(145, 145, 145, 0.3);
+    cursor: pointer;
+}
