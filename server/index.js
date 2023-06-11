@@ -32,62 +32,44 @@ app.use(cors())
 
 
 // *---------------message chat code --------------*//
-// ------------------//routes for creating users Api------------------//
-app.post('/chat', async (req, res) => {
-    try {
-        const msg = await Chat_Model.create(req.body)
-        res.send(msg)
-    }
-    catch (error) {
-        console.log(error)
-    }
-})
+// // ------------------//routes for creating users Api------------------//
+// app.post('/chat', async (req, res) => {
+//     try {
+//         const msg = await Chat_Model.create(req.body)
+//         res.send(msg)
+//     }
+//     catch (error) {
+//         console.log(error)
+//     }
+// })
 
-//--------api for messages ----------//
-app.get('/messages', async (req, res) => {
-    try {
-        const { sender, receiver } = req.query
-        const messages = await Chat_Model.find({
-            "$or": [
-                { "sender": sender, "receiver": receiver },
-                { "receiver": sender, "sender": receiver },
-            ]
-        })
-        res.send(messages)
-
-    } catch (error) {
-        res.send(error)
-    }
-})
 
 // *---------------message chat code --------------*//
 
-// ------------------//routes for creating users Api------------------//
-app.get('/users', async (req, res) => {
-    const user = await User_Model.find()
-    res.send(user)
-})
+// // ------------------//routes for creating users Api------------------//
+// app.get('/users', async (req, res) => {
+//     const user = await User_Model.find()
+//     res.send(user)
+// })
 // ------------------//routes for deleting all users------------------//
-app.delete('/users', async (req, res) => {
-    const user = await User_Model.deleteMany()
-    res.send('All User deleted')
-})
+// app.delete('/users', async (req, res) => {
+//     const user = await User_Model.deleteMany()
+//     res.send('All User deleted')
+// })
 // ------------------//routes for creating new account ------------------//
 app.post('/create-account', async function (req, res) {
     try {
-
-        // checking if the username is already exist
-        const user = await User_Model.findOne({ email: req.body.email })
+        // checking if the username and email is already exist
+        const user = await User_Model.findOne({ email: req.body.email } || { username: req.body.username })
         if (!user) {
             console.log('Saved to the database')
             const enc_password = await bcrypt.hash(req.body.password, 10)
-            const newUser = await User_Model.create({ username: req.body.username, email: req.body.email, password: enc_password })
+            const newUser = await User_Model.create({ username: req.body.username, email: req.body.email, password: enc_password, name: req.body.name })
             res.send({ msg: "Successfully created Account" })
             console.log('Created')
         }
         else {
-
-            console.log('alreay exist'); res.send({ msg: "Email Already exist" })
+            console.log('alreay exist'); res.send({ msg: "Email or username Already exist" })
         }
     }
     catch (error) {

@@ -37,6 +37,7 @@ export default function Register() {
             email: data.get('email'),
             username: data.get('username'),
             password: data.get('password'),
+            name: data.get('fullname'),
         }
 
         const requestOptions = {
@@ -44,14 +45,15 @@ export default function Register() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values)
         };
+        console.log(values)
         const response = await fetch(`${serverURL}/create-account`, requestOptions)
 
-            .then(res => res.text())
-            .then(text => {
-                const msg = (JSON.parse(text))
-                console.log(msg)
-                alert(msg.msg)
-            });
+        .then(res => res.text())
+        .then(text => {
+            const msg = (JSON.parse(text))
+            console.log(msg)
+            alert(msg.msg)
+        });
     };
 
     return (
@@ -64,7 +66,7 @@ export default function Register() {
                     sm={4}
                     md={7}
                     sx={{
-                        backgroundImage: 'url(https://cdn.pixabay.com/photo/2019/06/02/17/33/woman-4246954_1280.jpg)',
+                        backgroundImage: 'url(https://thumbs.gfycat.com/GenuineDesertedBluejay-max-1mb.gif)',
                         backgroundRepeat: 'no-repeat',
                         backgroundColor: (t) =>
                             t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -106,6 +108,15 @@ export default function Register() {
                                 id="username"
                                 label="Username"
                                 name="username"
+                            />
+                            <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                type='text'
+                                id="fullname"
+                                label="Name"
+                                name="fullname"
                             />
                             <TextField
                                 margin="normal"

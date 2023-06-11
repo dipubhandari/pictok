@@ -1,11 +1,17 @@
  .main_content {
      margin: 100px 0px;
      display: flex;
+     position: absolute;
+
  }
 
  .header {
      position: fixed;
      top: 0;
+     left: 0;
+     width: 100%;
+     background-color: #fff;
+     z-index: 9999;
  }
 
  .left_content {
@@ -13,8 +19,9 @@
      /* position: fixed; */
      width: 20%;
      overflow-y: scroll;
-     min-height: 100vh;
+     height: 85vh;
      scrollbar-width: thin;
+     position: fixed;
      /* Set the width of the scrollbar */
      scrollbar-color: #888888 #dddddd;
  }
@@ -36,7 +43,9 @@
      /* Round the corners of the thumb */
  }
 
- .content{
+ .content {
      flex: 4;
-/*  */
+     /*  */
+     margin: 0px 0px 0px 400px;
+     position: relative;
  }

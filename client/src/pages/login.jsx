@@ -74,7 +74,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://cdn.pixabay.com/photo/2017/01/18/17/14/girl-1990347_1280.jpg)',
+            backgroundImage: 'url( https://sf-tk-sg.ibytedtos.com/obj/tiktok-web-sg/tt-sg-article-cover-7dc2e3edac2936fab0a719fbc223a2a1.gif )',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -96,7 +96,7 @@ export default function Login() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              PicTok Login
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
@@ -127,7 +127,7 @@ export default function Login() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Login
               </Button>
               <Grid container>
                 <Grid item xs>

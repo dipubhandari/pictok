@@ -46,9 +46,12 @@
     cursor: pointer;
     background-color: rgb(136, 136, 136, 0.1);
 }
-.suggestedtext{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color:rgb(155, 155, 155);
+
+.suggestedtext {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(155, 155, 155);
 }
+
 .loginsection {
     padding-bottom: 20px;
     border-bottom: 1px solid rgb(250, 243, 243);
@@ -86,11 +89,13 @@
     font-weight: bold;
     font-size: 14px;
 }
-.user_suggested_details{
+
+.user_suggested_details {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
 }
+
 .suggestedimglive {
     border-radius: 50px;
     border: 2px dotted red;

@@ -29,6 +29,8 @@ function Home(props) {
                     </section>
                     <section className='content'>
                         <Content />
+                        <Content />
+                        <Content />
                      
                     </section>
                 </section>
