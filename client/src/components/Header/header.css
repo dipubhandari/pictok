@@ -65,6 +65,7 @@
     display: flex;
     gap: 10px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .loginButton {
@@ -73,4 +74,21 @@
     color: #ffffff;
     text-decoration: none;
     border-radius: 4px;
+    cursor: pointer;
+}
+
+.sendNotificationsection{
+    display: flex;
+}
+.header_icons {
+    font-size: 30px;
+    padding: 0px 10px;
+    cursor: pointer;
+
+}
+
+.userprofilepicheader {
+    border-radius: 50px;
+    margin-left: 10px;
+    cursor: pointer;
 }

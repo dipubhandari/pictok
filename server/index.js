@@ -60,16 +60,14 @@ app.use(cors())
 app.post('/create-account', async function (req, res) {
     try {
         // checking if the username and email is already exist
-        const user = await User_Model.findOne({ email: req.body.email } || { username: req.body.username })
+        const user = await User_Model.findOne({ $or: [{ email: req.body.email }, { username: req.body.username }] })
         if (!user) {
-            console.log('Saved to the database')
             const enc_password = await bcrypt.hash(req.body.password, 10)
             const newUser = await User_Model.create({ username: req.body.username, email: req.body.email, password: enc_password, name: req.body.name })
-            res.send({ msg: "Successfully created Account" })
-            console.log('Created')
+            res.send({ success_msg: "Successfully created Account" })
         }
         else {
-            console.log('alreay exist'); res.send({ msg: "Email or username Already exist" })
+            console.log('alreay exist'); res.send({ error_msg: "Email or username Already exist" })
         }
     }
     catch (error) {
@@ -79,9 +77,10 @@ app.post('/create-account', async function (req, res) {
 })   // ------------------//routes for Login with jwt ------------------//
 app.post('/login', async function (req, res) {
     try {
-
+console.log(req.body)
         // checking if the username is already exist
-        const user = await User_Model.findOne({ email: req.body.email })
+        const user = await User_Model.findOne({ $or: [{ email: req.body.login_token }, { username: req.body.login_token }] })
+        console.log(user)
         if (!user) {
             res.send({ msg: "Provide Correct Details" })
         }

@@ -13,7 +13,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { serverURL } from '../server'
-
+import { Alert } from '@mui/material';
+import { useState } from 'react';
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -30,6 +31,11 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Register() {
+    // error hide show
+    const [show, setShow] = useState('none')
+    const [successshow, setsuccessshow] = useState('none')
+    const [msg, setMsg] = useState('')
+    // error till here
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -37,7 +43,7 @@ export default function Register() {
             email: data.get('email'),
             username: data.get('username'),
             password: data.get('password'),
-            name: data.get('fullname'),
+            name: data.get('name'),
         }
 
         const requestOptions = {
@@ -48,12 +54,21 @@ export default function Register() {
         console.log(values)
         const response = await fetch(`${serverURL}/create-account`, requestOptions)
 
-        .then(res => res.text())
-        .then(text => {
-            const msg = (JSON.parse(text))
-            console.log(msg)
-            alert(msg.msg)
-        });
+            .then(res => res.text())
+            .then(text => {
+                const msg = (JSON.parse(text))
+                console.log(msg)
+                if (msg.error_msg) {
+                    setShow('flex')
+                    setsuccessshow('none')
+                    setMsg(msg.error_msg)
+                }
+                else if (msg.success_msg) {
+                    setShow('none'); setsuccessshow('flex')
+                    setMsg(msg.success_msg)
+                }
+
+            });
     };
 
     return (
@@ -90,6 +105,8 @@ export default function Register() {
                         <Typography component="h1" variant="h5">
                             New Account
                         </Typography>
+                        <Alert variant="filled" severity="error" style={{ display: `${show}` }}>{msg}</Alert>
+                        <Alert severity="success" style={{ display: `${successshow}` }}>{msg}</Alert>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
@@ -104,9 +121,8 @@ export default function Register() {
                                 margin="normal"
                                 required
                                 fullWidth
-                                type='text'
                                 id="username"
-                                label="Username"
+                                label="select username"
                                 name="username"
                             />
                             <TextField
@@ -114,9 +130,9 @@ export default function Register() {
                                 required
                                 fullWidth
                                 type='text'
-                                id="fullname"
+                                id="name"
                                 label="Name"
-                                name="fullname"
+                                name="name"
                             />
                             <TextField
                                 margin="normal"
@@ -131,6 +147,7 @@ export default function Register() {
                                 control={<Checkbox value="remember" color="primary" />}
                                 label="Remember me"
                             />
+
                             <Button
                                 type="submit"
                                 fullWidth

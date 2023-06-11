@@ -13,19 +13,26 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setLoginDetails: (state, actions) => {
-           
+
             if (actions.payload) {
-                const { token, id, email, username } = actions.payload
+                const { token, id, email, username, isLoggedIn } = actions.payload
+                state.isLoggedIn = isLoggedIn
                 state.token = token
                 state.id = id
                 state.email = email
                 state.username = username
             }
-            state.isLoggedIn = !state.isLoggedIn
-         
+
+        }, logout: (state, actions) => {
+            state.isLoggedIn = false
+            state.token = ''
+            state.id = ''
+            state.email = ''
+            state.username = ''
         },
     }
+
 });
 
-export const { setLoginDetails } = userSlice.actions;
+export const { setLoginDetails, logout } = userSlice.actions;
 export default userSlice.reducer;

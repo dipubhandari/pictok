@@ -10,9 +10,8 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import Header from '../components/Header/Header';
 import Content from '../components/Content/Content';
 
-
 function Home(props) {
-
+   
     return (
         <>
             <main className='homeContainer_homepage'>
@@ -31,7 +30,7 @@ function Home(props) {
                         <Content />
                         <Content />
                         <Content />
-                     
+
                     </section>
                 </section>
                 {/* content ends here */}

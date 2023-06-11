@@ -18,12 +18,13 @@ function App() {
 
         <Routes>
           {/* homepage route */}
-          <Route path='/' element={<Login />}></Route>
+          <Route path='/' element={<Home />}></Route>
           {/* login routes */}
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
           {/* fouyou page routes */}
           <Route path='/home' element={<Home />}></Route>
+          <Route path='/foryou' element={<Home/>}/>
           {/* user profile page */}
           <Route path='/profile' element={<Profile />}></Route>
           {/* post details routes */}

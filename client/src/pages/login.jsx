@@ -38,7 +38,7 @@ export default function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const values = {
-      email: data.get('email'),
+      login_token: data.get('email'),
       password: data.get('password'),
     }
 
@@ -51,15 +51,14 @@ export default function Login() {
       .then(res => res.text())
       .then(text => {
         const msg = (JSON.parse(text))
-        console.log(msg)
-        alert(msg.msg)
         if (msg.user) {
           dispatch(setLoginDetails({
             id: msg.user._id,
             token: msg.token,
-            email: msg.user.email
+            email: msg.user.email,
+            isLoggedIn:true
           }))
-          location('/home')
+          location('/foryou')
         }
       });
   };
@@ -74,7 +73,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url( https://sf-tk-sg.ibytedtos.com/obj/tiktok-web-sg/tt-sg-article-cover-7dc2e3edac2936fab0a719fbc223a2a1.gif )',
+            backgroundImage: 'url(https://media.tenor.com/K-Cg2YFyphMAAAAd/tiktok-dance.gif)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
