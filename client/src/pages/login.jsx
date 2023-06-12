@@ -101,7 +101,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://cdn.pixabay.com/photo/2015/05/31/13/02/mobile-phone-791644_1280.jpg)',
+            backgroundImage: 'url(dhttps://media.tenor.com/Sodo_MnnPpQAAAAd/nepali-tiktok.gif)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],

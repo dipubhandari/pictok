@@ -10,14 +10,14 @@ const Header = () => {
     console.log(isLoggedIn)
     return (
         <div className='header'>
-            <section className="leftHeader">
+            <NavLink to='/foryou' className="leftHeader">
                 <img src="https://static.vecteezy.com/system/resources/previews/017/221/712/original/tiktok-icon-transparent-free-png.png" width={50} height={50} alt="logo" />PICTOK
-            </section>
+            </NavLink>
             <section className="middleHeader">
                 <input type="text" placeholder='Search' />
                 <span ><FiSearch /></span>
             </section> <section className="rightHeader">
-                <button className='upload'> <AiOutlinePlus /> Upload</button>
+                <NavLink to='/post' className='upload'> <AiOutlinePlus /> Upload</NavLink>
                 {/* // if user not logged in show login button else show profile picture */}
                 {
                     (isLoggedIn) ?
@@ -26,7 +26,7 @@ const Header = () => {
                             <FiSend className='header_icons' />
                             <MdCircleNotifications className='header_icons' />
                             {/* Profile Icon When Clicked PopupLogout */}
-                           <Logout/>
+                            <Logout />
                         </section>
 
                         :

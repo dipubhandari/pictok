@@ -9,6 +9,7 @@ import Home from './pages/home';
 import Chat from './pages/chat'
 import Post from './pages/post';
 import Profile from './pages/profile';
+import Upload from './pages/upload/upload';
 function App() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn)
 
@@ -24,7 +25,9 @@ function App() {
           <Route path='/register' element={<Register />}></Route>
           {/* fouyou page routes */}
           <Route path='/home' element={<Home />}></Route>
-          <Route path='/foryou' element={<Home/>}/>
+          {/* routes for upload videos */}
+          <Route path='/post' element={(isLoggedIn) ?<Upload /> : <Login/>}></Route>
+          <Route path='/foryou' element={<Home />} />
           {/* user profile page */}
           <Route path='/profile' element={<Profile />}></Route>
           {/* post details routes */}
