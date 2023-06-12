@@ -81,7 +81,7 @@ export default function Register() {
                     sm={4}
                     md={7}
                     sx={{
-                        backgroundImage: 'url(https://thumbs.gfycat.com/GenuineDesertedBluejay-max-1mb.gif)',
+                        backgroundImage: 'url(https://cdn.pixabay.com/photo/2016/11/29/22/02/white-male-1871436_1280.jpg)',
                         backgroundRepeat: 'no-repeat',
                         backgroundColor: (t) =>
                             t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],

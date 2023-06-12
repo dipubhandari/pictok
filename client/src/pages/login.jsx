@@ -16,6 +16,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { serverURL } from '../server';
 import { useDispatch } from 'react-redux'
 import { setLoginDetails } from '../redux/userslice';
+import { Alert } from '@mui/material';
+import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Copyright(props) {
@@ -32,33 +36,57 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  // state for show hide error messase
+  const [show, setShow] = useState('none')
+  // state for error message
+  const [error_msg, setErrorMsg] = React.useState('')
+  // hook to navigage
   const location = useNavigate()
+
   const dispatch = useDispatch()
+
+  // when user clicks on login button
   const handleSubmit = async (event) => {
+    // prevent from reload submit
     event.preventDefault();
+
     const data = new FormData(event.currentTarget);
+    // values from login form
     const values = {
       login_token: data.get('email'),
       password: data.get('password'),
     }
-
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values)
     };
+    // triggered when user click on login
     const response = await fetch(`${serverURL}/login`, requestOptions)
       .then(res => res.text())
       .then(text => {
         const msg = (JSON.parse(text))
+        console.log(msg)
+        // setting the redux with user login information if user provide correct crendetials
         if (msg.user) {
+          const notify = () => toast(
+            msg.success_msg
+          );
+          notify()
           dispatch(setLoginDetails({
             id: msg.user._id,
             token: msg.token,
             email: msg.user.email,
-            isLoggedIn:true
+            isLoggedIn: true
           }))
+          // navigate to homepage
           location('/foryou')
+        }
+        // if error occurs show error message
+        if (msg.error_msg) {
+          // setting display flex when error occur
+          setErrorMsg(msg.error_msg)
+          setShow('flex')
         }
       });
   };
@@ -73,7 +101,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://media.tenor.com/K-Cg2YFyphMAAAAd/tiktok-dance.gif)',
+            backgroundImage: 'url(https://cdn.pixabay.com/photo/2015/05/31/13/02/mobile-phone-791644_1280.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -97,6 +125,7 @@ export default function Login() {
             <Typography component="h1" variant="h5">
               PicTok Login
             </Typography>
+            <Alert variant="filled" severity="error" style={{ display: `${show}` }}>{error_msg}</Alert>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"

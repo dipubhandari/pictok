@@ -77,12 +77,12 @@ app.post('/create-account', async function (req, res) {
 })   // ------------------//routes for Login with jwt ------------------//
 app.post('/login', async function (req, res) {
     try {
-console.log(req.body)
+        console.log(req.body)
         // checking if the username is already exist
         const user = await User_Model.findOne({ $or: [{ email: req.body.login_token }, { username: req.body.login_token }] })
         console.log(user)
         if (!user) {
-            res.send({ msg: "Provide Correct Details" })
+            res.send({ error_msg: "Provide Correct Details" })
         }
         else {
             //  compare password and check
@@ -91,16 +91,16 @@ console.log(req.body)
                 const token = jwt.sign({ id: user._id }, 'secrete-key', { expiresIn: '10d' })
                 user.token = token
                 user.password = null
-                res.send({ user: user, msg: "Login Successfull", token })
+                res.send({ user: user, success_msg: "Login Successfull", token })
             }
             else {
-                res.send({ msg: "Provide Correct Details" })
+                res.send({ error_msg: "Provide Correct Details" })
 
             }
 
         }
     } catch (error) {
-        res.send({ msg: "Something Went wrong Try Again" })
+        res.send({ error_msg: "Something Went wrong Try Again" })
     }
 
 })
