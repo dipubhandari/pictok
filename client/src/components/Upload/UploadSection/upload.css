@@ -1,0 +1,70 @@
+.uploadDiv {
+    background-color: rgb(48, 54, 54, 0.1);
+    margin-top: 20px;
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploadarea {
+    border-radius: 10px;
+      height: 60vh;
+    width: 80%;
+    border: 2px dashed rgb(151, 150, 150);
+    background-color: rgb(255, 255, 255);
+    /* border: 1px dot rgb(105, 105, 105, 0.2); */
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.uploadarea:hover {
+    background-color: rgba(151, 155, 155, 0.1);
+}
+
+.uploadInner {
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px solid grey;
+    height: 78vh;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(105, 105, 105, 0.2);
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.uploadicon {
+    color: rgb(93, 93, 93);
+    font-size: 50px;
+}
+
+.selectTitle {
+   font-size: 30px; font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.uploadinstruction {
+    color: rgb(139, 139, 139);
+    margin-top: 10px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.uploadbutton {
+    background-color: rgb(255, 50, 9);
+    padding: 15px 150px;
+    border: 1px solid #fff;
+    color: white;
+
+}
+
+.uploadbutton:hover {
+    background-color: rgb(254, 13, 13);
+    cursor: pointer;
+}

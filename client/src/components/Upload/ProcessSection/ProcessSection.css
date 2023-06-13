@@ -1,0 +1,17 @@
+.imageArea {
+    height: 500px;
+    width: 300px;
+    background-color: goldenrod;
+}
+
+.uploadInnerProcess {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.processInstrction {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
