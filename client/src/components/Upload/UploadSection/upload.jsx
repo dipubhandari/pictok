@@ -1,13 +1,29 @@
 import { IoMdCloudUpload } from 'react-icons/io'
 import './upload.css'; import React from 'react'
 import Header from '../../Header/Header'
+// import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useState } from 'react';
+import { post } from '../../../redux/postSlice';
 
-const UploadSection = () => {
-
+const UploadSection = (props) => {
+    let file = {}
+    const dispatch = useDispatch()
+    const handleChange = (e) => {
+        file = e.target.files[0]
+     
+            dispatch(post(true))
+           props.getFile(file)
+    }
     return (
         <div>
-            <input type='file' style={{ display: 'none' }} id='file' />
-{/* 
+            <input
+                name='file'
+                type='file'
+                style={{ display: 'none' }}
+                onChange={handleChange}
+                id='file' />
+            {/* 
             <Header /> */}
 
             <section className="uploadDiv">

@@ -1,17 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit'
-import userSlice from './userslice'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage'
-import chatSlice from './chatSlice'
 import { persistReducer, persistStore } from 'redux-persist'
-
-
+import userSlice from './userslice'
+import postSlice from './postSlice'
 
 const presistConfig = { key: 'keep-picktok-store', storage }
-const presistedReducer = persistReducer(presistConfig, userSlice)
-export const store = configureStore({
-  reducer: {
-    user: presistedReducer,
-    chat: chatSlice
-  }
+
+const reducer = combineReducers({
+  user: userSlice,
+  post: postSlice
 })
+
+
+const presistedReducer = persistReducer(presistConfig, reducer)
+export const store = configureStore({
+  reducer: presistedReducer,
+})
+
 export const presistedStore = persistStore(store)

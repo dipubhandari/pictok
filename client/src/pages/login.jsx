@@ -101,7 +101,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(dhttps://media.tenor.com/Sodo_MnnPpQAAAAd/nepali-tiktok.gif)',
+            backgroundImage: 'url(https://w0.peakpx.com/wallpaper/721/529/HD-wallpaper-m-s-dhoni-dhoni-forever-dhoni-ms-dhoni-happy-birtay-dhoni-07-dhoni-7-iammsa-hbd-dhoni-msd.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],

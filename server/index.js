@@ -1,13 +1,13 @@
 import dbCon from "./database/dbcon.js"
 import express from 'express'
 import User_Model from './models/user.js'
-import Chat_Model from './models/chat.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import cors from 'cors'
 import { createServer } from "http";
 import { Server } from "socket.io";
 import realTimeChat from './socketChat.js'
+import postRoutes from "./routes/postRoutes.js"
 const app = express()
 
 const httpServer = createServer(app);
@@ -31,31 +31,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
 
-// *---------------message chat code --------------*//
-// // ------------------//routes for creating users Api------------------//
-// app.post('/chat', async (req, res) => {
-//     try {
-//         const msg = await Chat_Model.create(req.body)
-//         res.send(msg)
-//     }
-//     catch (error) {
-//         console.log(error)
-//     }
-// })
+// routes
 
+app.use('/api', postRoutes)
 
-// *---------------message chat code --------------*//
-
-// // ------------------//routes for creating users Api------------------//
-// app.get('/users', async (req, res) => {
-//     const user = await User_Model.find()
-//     res.send(user)
-// })
-// ------------------//routes for deleting all users------------------//
-// app.delete('/users', async (req, res) => {
-//     const user = await User_Model.deleteMany()
-//     res.send('All User deleted')
-// })
 // ------------------//routes for creating new account ------------------//
 app.post('/create-account', async function (req, res) {
     try {
