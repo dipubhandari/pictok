@@ -2,8 +2,10 @@ import { IoMdCloudUpload } from 'react-icons/io'
 import './ProcessSection.css'; import React, { useEffect } from 'react'
 import Header from '../../Header/Header'
 import { Switch } from '@mui/material';
-
+import { useSelector } from 'react-redux'
+import {serverURL} from '../../../server'
 const ProcessSection = (props) => {
+    const user = useSelector(state => state.user.id)
     let [visibility, setShow] = React.useState(true);
     // state for the data of user post
     const [postInfo, setPostInfo] = React.useState({
@@ -19,8 +21,6 @@ const ProcessSection = (props) => {
     const handleVisibility = () => {
         setShow(!visibility)
         setPostInfo({ ...postInfo, visibility: !visibility ? 'public' : 'private', })
-        console.log('hello world')
-
     }
 
 
@@ -31,23 +31,31 @@ const ProcessSection = (props) => {
         if (name == 'status') {
             setPostInfo({ ...postInfo, [name]: value })
         }
-        console.log(postInfo)
+
         // converting hashtags into array
         if (name == 'hashtag') {
             const hashArray = value.split('#')
-            console.log(hashArray)
             setPostInfo({ ...postInfo, [name]: hashArray })
         }
     }
     // post request when user clicked on upload button
-    const postUser = () => {
+    const postUser = async () => {
         //POST REQUEST
-
-
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(postInfo)
+        };
+        // const response = await fetch(`${serverURL}/create-account`, requestOptions)
+        const uploadRequest = await fetch(`${serverURL}/user-post-content`, requestOptions)
+        
+        console.log(postInfo)
         // response
     }
     useEffect(() => {
-        console.log(props.file)
+        // setting up the file from uploadsection in content keyword
+        setPostInfo({ ...postInfo, content: props.file, user: user })
+        // console.log(user)
     }, [])
     return (
         <div>

@@ -2,8 +2,9 @@ class PostController {
 
     // register user
     // post controller
-    static post = async (req, res) => {
+    static uploadContent = async (req, res) => {
         try {
+            console.log('this works')
             console.log(req.body)
         } catch (errr) { console.log(errr) }
     }

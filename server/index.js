@@ -33,7 +33,7 @@ app.use(cors())
 
 // routes
 
-app.use('/api', postRoutes)
+app.use('/', postRoutes)
 
 // ------------------//routes for creating new account ------------------//
 app.post('/create-account', async function (req, res) {

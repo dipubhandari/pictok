@@ -51,7 +51,6 @@ export default function Register() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values)
         };
-        console.log(values)
         const response = await fetch(`${serverURL}/create-account`, requestOptions)
 
             .then(res => res.text())
